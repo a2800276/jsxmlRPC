@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<parent>
+	<child>
+		<child_a>
+			Child A Text
+		</child_a>
+	</child>
+	<child_two>
+		<child_b>
+			Child B Text
+		</child_b>
+	</child_two>
+	<child_two>
+		<child_b>
+			Child B Text
+		</child_b>
+	</child_two>
+</parent>

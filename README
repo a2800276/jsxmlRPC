@@ -13,6 +13,8 @@ files are included in the distribution:
   processed into one large file that's stripped of comments and
   unnecessary whitespace
 
+* `prepare_tests.rb` prepares the unit tests from the source files.
+
 * `prepare.rb` the script to assemble the source files.
 
 * `prepare_dist.rb` the script to prepare the jsRPC distribution
@@ -30,19 +32,17 @@ files are included in the distribution:
   a server that support ruby for CGI. Most likely, you'll not have
   sufficient infrastructure, the tests are hosted [here](1).
 
-* `test` some of the required infrastructure that `prepare_test_dist.rb`
+* `tests` some of the required infrastructure that `prepare_tests.rb`
   uses to construct the distribution. This is a really crude attempt at
-  a Javascript unit test runner. The tests are implemented as an array
-  of functions at the bottom of each "raw" javascript file in `src`. The
-  testrunner calls each function in the array. The test functions in the
-  array return either `true` or `false` to determine whether that test
-  passed. Some test have an `undefined` resul
+  a Javascript unit test runner. The tests are implemented as an array of
+  functions at the bottom of each "raw" javascript file in the `src`
+  directory. The testrunner calls each function in the array. The test
+  functions in the array return either `true` or `false` to determine
+  whether that test passed. Some test have an `undefined` result.
   
   The `prepare.rb` script removes these tests when preparing the
   `all_scripts.js` distribution file.
 
-* `test_dist` the directory that the script assembles the test files
-  into. 
 
 
 [1]: http://www.kuriositaet.de/javascript/test/test_index.html

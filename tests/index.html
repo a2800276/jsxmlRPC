@@ -1,0 +1,74 @@
+<html>
+<head>
+	<script src="all_scripts.js" type="text/javascript"></script>
+	<script src="all_tests.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		function write (obj) {
+			document.writeln(obj);
+		}
+		function escapeHTML (str) {
+			str= str.replace(/</g, "&lt;")
+			str= str.replace(/>/g, "&gt;")
+			str= str.replace(/&/g, "&amp;")
+			return str
+		}
+		function toggle(elId) {
+			var e = document.getElementById(elId);
+			if (e.style.display == "block") 
+				e.style.display = "none";
+			else 
+				e.style.display = "block";
+			return false;
+		}
+
+
+
+	</script>
+
+</head>
+<body>
+
+
+<script  type="text/javascript">
+	tests_regexp = /.*_tests$/
+	tests = new Array
+	for (prop in this) {
+		if (prop.match(tests_regexp) && isA(this[prop], Array)){
+			tests.push(prop)
+		}
+	}
+
+	tests.sort()
+	for (var i = 0; i!= tests.length; ++i) {
+		var curr_test_name = tests[i]
+		var curr_test = this[curr_test_name]
+		write("<h1>"+curr_test_name+"</h1>")
+		write("<p>Number of tests: "+curr_test.length+"<p>")
+		write("<ol>")
+		for (var j =0; j!= curr_test.length; ++j){
+			write("<li>")
+			result = "UNKNOWN"
+			try {
+				result = (curr_test[j]() ? "passed" : "failed")
+			} catch (e) {
+				result = "exception: ("+e.toString()+")"
+			}
+			write("Result: "+result)
+			elid = "_"+i+"_"+j
+			write ("<small>Show test(<a href=\"#\" onclick=\"return toggle(\'test"+elid+"\')\">+</small></a>) <div id=\"test"+elid+"\" style=\"display:none\" class=\"source\"><pre>")
+			write (""+escapeHTML(curr_test[j].toString())+"")
+			write("</pre></div>")
+			
+
+			document.writeln("</li>")
+		}
+		document.writeln("</ol>")
+	}
+
+</script>
+	
+
+
+
+</body>
+</html>
