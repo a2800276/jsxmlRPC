@@ -3,15 +3,16 @@
 require "ftools"
 
 
-`./prepare.rb`
+`ruby ./prepare.rb`
 
-distRoot = "jxmlsRPC"
+distRoot = "jsxmlRPC"
+
+`rm -rf dist/jsxmlRPC`
+
 File.makedirs("dist/#{distRoot}/src")
-File.makedirs("dist/#{distRoot}/test")
-File.makedirs("dist/#{distRoot}/test/data")
-File.makedirs("dist/#{distRoot}/test/css")
-File.makedirs("dist/#{distRoot}/test/ws")
-File.makedirs("dist/#{distRoot}/testdist")
+File.makedirs("dist/#{distRoot}/tests")
+File.makedirs("dist/#{distRoot}/tests/ws")
+File.makedirs("dist/#{distRoot}/tests/data")
 
 # copy src/*js -> dist
 Dir["src/*.js"].each {|fname|
@@ -19,11 +20,8 @@ Dir["src/*.js"].each {|fname|
 	
 }
 
-Dir["test/*"].each { |fname|
-	File.copy(fname, "dist/#{distRoot}/test", true) unless FileTest.directory?(fname)
-}
 
-Dir["test/*/*"].each {|fname|
+Dir["tests/*/*"].each {|fname|
 	File.copy(fname, "dist/#{distRoot}/"+fname, true)
 	#puts fname	
 }
