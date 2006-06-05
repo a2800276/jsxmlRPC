@@ -1,0 +1,23 @@
+Sat Feb 11 14:05:44 CET 2006
+Fixed date bug
+
+Sun Feb  5 19:06:01 CET 2006
+
+took care of some nasty race conditions when making consecutive async calls
+
+Sat Feb  4 16:22:54 CET 2006
+
+Added introspection functionality using `system.listMethods`
+
+Fri Jan 20 09:55:42 CET 2006
+
+Modified stub generation to allow methodNames contains dots (.). These are
+mapped to underscores. E.g. A call to the XML-RPC system.listMethods
+methods would be called proxy.system_listMethods.
+
+Should you happen to need two different methods, one named "some.method" and
+the other "some_underscore" method, you are out of luck.
+
+Fri Jan 20 09:57:45 CET 2006
+
+Added this file

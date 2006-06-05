@@ -1,0 +1,36 @@
+files.txt - this file
+
+request_basics.js - contains an extended (as in object orientation)
+version of the XMLHttpRequest that is meant to make it less painfule to
+work with.
+
+type_basics.js - contains some utility functions to help determine the
+type of Javascript objects.
+
+xml_basics.js - contains utility functions to help workinf with XML,
+both in text form, e.g. assembling tags, and in DOM form, e.g.
+retrieving values from DOM.
+
+xml_rpc_request_basics.js - contains functionality required to create
+XML-RPC requests. The Javascript to XML-RPC marshalling is implemented
+in this file.
+
+xml_rpc_response_basics.js - contains functionality to unmarshall
+XML-RPC data into Javascript data.
+
+xmlrpc.js - ties everything together and provides functionality to
+automatically create the Javascript proxy object for webservices.
+
+-- TODO - these files don't belong to the jsRPC package.
+
+xml.js - todo - utility functions for dumping xml nodes.
+
+html_basics.js - utility functions for creating html dynamically
+
+createObject.js - experimental stuff for dynamically instantiating
+objects.
+
+test_basics.js - utilities for a Javascript test harness.
+
+
+
