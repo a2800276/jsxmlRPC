@@ -36,3 +36,10 @@ File.open("tests/all_tests.js", "w") { |output|
 		}
 	}
 }
+
+# generate the all_scripts.js file
+`ruby ./prepare.rb`
+
+require "ftools"
+File.copy("dist/all_scripts.js", "tests")
+

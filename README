@@ -13,7 +13,6 @@ files are included in the distribution:
   processed into one large file that's stripped of comments and
   unnecessary whitespace
 
-* `prepare_tests.rb` prepares the unit tests from the source files.
 
 * `prepare.rb` the script to assemble the source files.
 
@@ -25,12 +24,11 @@ files are included in the distribution:
   case you are repackaging the main distribution tarball, that also gets
   assembled in this directory.
 
-* `prepare_test_dist.rb` this script assembles all the necessary files
-  to a tarball that can be install on a server. This provides an
-  automatic test-harness. Since the tests also include calls to
-  webservices (which are included) they currently need to be install on
-  a server that support ruby for CGI. Most likely, you'll not have
-  sufficient infrastructure, the tests are hosted [here](1).
+* `prepare_tests.rb` prepares the unit tests from the source files.
+  Since the tests also include calls to webservices (which are included)
+  they currently need to be install on a server that support ruby for CGI.
+  Most likely, you'll not have sufficient infrastructure, the tests are
+  hosted [here](1).
 
 * `tests` some of the required infrastructure that `prepare_tests.rb`
   uses to construct the distribution. This is a really crude attempt at
