@@ -107,6 +107,15 @@ require "ftools"
 File.makedirs("dist/")
 
 File.open("dist/all_scripts.js", "w") { |outfile|
+	outfile.puts "/* 
+	Copyright (c) 2006, Tim Becker (tim@kuriositaet.de)
+	All rights reserved.
+	Full license details at www.kurisositaet.de/jsxmlrpc/LICENSE.txt
+	In short: feel free to do what you want with this, but give me some 
+	credit and don't sue me. (BSD License)
+*/
+	"
+
 	files.each { |f|
 	puts f
 		File.open(f, "r") { |infile|
