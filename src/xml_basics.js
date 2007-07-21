@@ -59,7 +59,7 @@ function makeTag (tagName, strValue) {
 
 
 function visitChildren (node, lamdba, optionalNodeTypeRestriction) {
-	nodeList = node.childNodes
+	var nodeList = node.childNodes
 	eachInNodeList(nodeList, lamdba, optionalNodeTypeRestriction)
 }
 

@@ -78,8 +78,8 @@ function escapeHTML (str) {
 
 function runTests (testArr) {
 	write ("<h1>"+document.title+"</h1>")
-	numFailed = 0
-	numException = 0
+	var numFailed = 0
+	var numException = 0
 	for (var i=0; i!=testArr.length; ++i) {
 		var result
 		try {

@@ -34,7 +34,7 @@ function getDateFromChild (dateNode) {
 	//20051209T11:32:39
 	var re = /(\d\d\d\d)(\d\d)(\d\d)T(\d\d):(\d\d):(\d\d)/
 	var result = re.exec (dateString)
-	month=new Number(result[2])
+	var month=new Number(result[2])
 	return new Date(result[1],month-1,result[3],result[4],result[5],result[6])
 }
 
@@ -122,6 +122,7 @@ function getResultFromValueNode (node) {
 
 var req
 var xml
+var xmlstring = '<?xml version="1.0"?><methodResponse><params><param><value><struct><member><name>containsArray</name><value><array><data><value><struct><member><name>crap</name><value><string>bullshit</string></value></member></struct></value></data></array></value></member><member><name>str</name><value><string>anothStr</string></value></member></struct></value></param></params></methodResponse>'
 
 xml_rpc_response_tests = [
 	function () {
@@ -138,7 +139,15 @@ xml_rpc_response_tests = [
 		arr = getArray(arrayNode)
 		return (isA(arr, Array) && arr.length==4)
 		
+	},
+	function () {
+		var rpc = new XmlRpc();
+		var parser=new DOMParser();
+		var xml=parser.parseFromString(xmlstring,"text/xml");
+		result = rpc.handleAnswer(xml);
+		return (result.containsArray && result.str == "anothStr")
 	}
+	
 ]
 
 

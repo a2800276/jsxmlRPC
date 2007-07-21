@@ -37,7 +37,7 @@ files are included in the distribution:
   Since the tests also include calls to webservices (which are included)
   they currently need to be install on a server that support ruby for CGI.
   Most likely, you'll not have sufficient infrastructure, the tests are
-  hosted [here](1).
+  hosted [here][1].
 
 * `tests` some of the required infrastructure that `prepare_tests.rb`
   uses to construct the distribution. This is a really crude attempt at
@@ -52,7 +52,7 @@ files are included in the distribution:
 
 
 
-[1]: http://www.kuriositaet.de/javascript/tests/index.html
+[1]: http://www.kuriositaet.de/javascript/test_ng/index.html
 [sourceforge]: http://sourceforge.net/project/showfiles.php?group_id=168212
 [svn]: http://sourceforge.net/svn/?group_id=168212
 [script]: all_scripts.js

@@ -29,20 +29,20 @@
 
 
 function makeElement (elementName, text) {
-	node = document.createElement(elementName)
+	var node = document.createElement(elementName)
 	if (text)
 		node.appendChild(document.createTextNode(text))
 	return node
 }
 
 function appendAttribute (node, name, value) {
-	attr = document.createAttribute(name)
+	var attr = document.createAttribute(name)
 	attr.nodeValue=value
 	node.setAttributeNode(attr)
 }
 
 function makeLink (url,text, target) {
-	node = makeElement ("a", text)
+	var node = makeElement ("a", text)
 	appendAttribute(node, "href", url)
 	
 	if (target) {
@@ -52,7 +52,7 @@ function makeLink (url,text, target) {
 }
 
 function makeDiv(clas, text){
-	node = makeElement("div", text)
+	var node = makeElement("div", text)
 	appendAttribute(node, "class", clas)
 	return node	
 }
@@ -63,7 +63,7 @@ function makeBr () {
 }
 
 function formToObject (form) {
-	obj = new Object()
+	var obj = new Object()
 	for (i=0; i!=form.length; ++i) {
 		if (form[i].name && form[i].name!="") {
 			obj[form[i].name] = form[i].value	

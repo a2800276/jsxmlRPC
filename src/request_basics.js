@@ -54,7 +54,7 @@ function getXMLHttpRequest () {
 function checkRequestStatus (request) {
 	// status 0 for offline testing/developing
 	if (request.status != 200 && request.status != 0) {
-		exception = request.status.toString() + " : "
+		var exception = request.status.toString() + " : "
 		exception += request.statusText ? request.statusText : "Network error"
 		exception.errCode = request.status
 		throw exception
@@ -72,8 +72,8 @@ function readyStateChangeFunc (request, lambda) {
 }
 
 function getOnreadystatechangeCallback (req){
+	arr = ["readyState", "responseBody", "responseStream", "responseText", "responseXML", "status", "statusText"]
 	return function () {
-		arr = ["readyState", "responseBody", "responseStream", "responseText", "responseXML", "status", "statusText"]
 		for (var i=0; i!= arr.length; ++i) {
 			try {
 				req[arr[i]]=req._request[arr[i]]				
@@ -208,11 +208,11 @@ function Request (url, content, callback) {
 				this.requestMethod="POST"	
 			}
 		}
-		this.open (this.requestMethod, url, async)
-		this.setRequestHeader("Content-Length", content!=null?content.length:0)
-		if (content!=null)
+		this.open (this.requestMethod, this.url, async)
+		this.setRequestHeader("Content-Length", this.content!=null?this.content.length:0)
+		if (this.content!=null)
 			this.setRequestHeader("Content-Type",this.contentType);
-		this.send (content)
+		this.send (this.content)
 		if (async) return
 
 		this.copyAttributes()
@@ -246,7 +246,7 @@ request_basics_tests = [
 	// MSIE doesn't support getXMLHttpRequest != false
 	function () {return !(!getXMLHttpRequest())},
 	function () {	 
-		req = new Request("data/test.xml")
+		var req = new Request("data/test.xml")
 		req.requestMethod="GET"
 		req.process()
 		return true;
@@ -258,7 +258,7 @@ request_basics_tests = [
 	nb="test is only known after it\'s evaluated and will be "
         nb="displayed in a little alert box..."
 			
-			req = new Request("index.html", null,
+			var req = new Request("index.html", null,
 				function(){alert("async test passed")})
 			req.requestMethod="GET"
 			req.onnetworkerror = function () {
@@ -277,7 +277,7 @@ request_basics_tests = [
 	nb="test is only known after it\'s evaluated and will be "
         nb="displayed in a little alert box..."
 			
-			req = new Request("non_existant_file", null,
+			var req = new Request("non_existant_file", null,
 				function(){alert("onnetworkerror test failed")})
 			req.requestMethod="GET"
 			req.onnetworkerror = function () {

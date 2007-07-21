@@ -55,11 +55,11 @@ function XmlRpc (url) {
 	
 	this.handleAnswer=function(xml) {
 		if (xml == null) throw "ERROR: no xml returned"
-		node = xml.getElementsByTagName("fault")
+		var node = xml.getElementsByTagName("fault")
 		if (node.length!=0){this.handleFault(node[0])}
 	
-		nodeList = xml.getElementsByTagName("param")
-		valueArr = []
+		var nodeList = xml.getElementsByTagName("param")
+		var valueArr = []
 		func = function (node){
 			visitChildren(
 				node,
@@ -71,7 +71,7 @@ function XmlRpc (url) {
 				func,
 				Node.ELEMENT_NODE
 				);
-		result = []
+		var result = []
 
 		eachInNodeList (valueArr,
 				function (a) {
@@ -92,7 +92,7 @@ function XmlRpc (url) {
 		var request = '<?xml version="1.0"?>'
 		request += "<methodCall>" 
 		request += makeTag("methodName", arguments[0])
-		params=""
+		var params=""
 		var callback = null	
 		for (var i=1; i!=arguments.length; ++i){
 
@@ -105,7 +105,8 @@ function XmlRpc (url) {
 		if (params != "")
 			request += makeTag("params", params)
 		request += "</methodCall>"
-		req = new Request(this.url, request, getHandler(this, callback))
+
+		var req = new Request(this.url, request, getHandler(this, callback))
 		if (callback && this.onerror) {
 			req.onnetworkerror = this.onerror
 		}

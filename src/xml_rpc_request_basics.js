@@ -59,7 +59,7 @@ function encodeXmlRpc(arg) {
  *  encodes JavaScript Array to xmlRpc Array
  */
 function makeArrayValues (arg) {
-	str = "";
+	var str = "";
 	for (var i=0; i!=arg.length; ++i){
 		str += makeTag("value", encodeXmlRpc(arg[i]))
 	}
@@ -70,7 +70,7 @@ function makeArrayValues (arg) {
 	encodes properties of all otherwise unhandled type into an XmlRpc Struct
 */
 function makeStructMembers (arg) {
-	str = ""
+	var str = ""
 	for (var p in arg){
 		if (isA(arg[p],Function)) continue;
 		str += makeTag("member", makeTag("name",p)+makeTag("value", encodeXmlRpc(arg[p])))	
@@ -82,8 +82,8 @@ function makeStructMembers (arg) {
 	encodes Date String.
 */
 function getIso8601Str(date){
-	str = date.getFullYear().toString()
-	month = date.getMonth()+1
+	var str = date.getFullYear().toString()
+	var month = date.getMonth()+1
 	if (month<10) str += "0"
 	str += month
 	day = date.getDate()
@@ -118,6 +118,5 @@ xml_rpc_basics_tests = [
 		test2.one="hallo"
 		test2.two=2
 		return encodeXmlRpc (test2) == "<struct><member><name>one</name><value><string>hallo</string></value></member><member><name>two</name><value><int>2</int></value></member></struct>"
-	}
-	
+	}	
 ]
