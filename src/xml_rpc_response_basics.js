@@ -57,7 +57,7 @@ function getStruct (structNode) {
 	var name
 	
 	
-	getMemberAndValue = function (x) {
+	var getMemberAndValue = function (x) {
 		if (x.nodeName == "name"){
 			name = getTextValueOfChild(x) 	
 		}
@@ -66,7 +66,7 @@ function getStruct (structNode) {
 		}
 	}
 	
-	eachMember = function (node) {
+	var eachMember = function (node) {
 		visitChildren (
 			node,
 			getMemberAndValue,

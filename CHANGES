@@ -1,3 +1,6 @@
+Sat Jul 21 18:52:42 CEST 2007
+Fixed scope bug that led to arrays containing structs not to work.
+
 Sat Feb 11 14:05:44 CET 2006
 Fixed date bug
 
