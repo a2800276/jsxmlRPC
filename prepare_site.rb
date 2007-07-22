@@ -5,7 +5,7 @@
 # the jsxmlrpc site and upload them...
 
 require "ftools"
-require "bluecloth"
+require "mybluecloth"
 
 `ruby ./prepare_dist.rb`
 
@@ -41,6 +41,7 @@ Dir["site/*.markdown"].each do |file_name|
 	outFile = $1+".html"
 
 	File.open("#{output_dir}/#{outFile}", "w") { |out|
+    puts outFile
 		bc = BlueCloth::new(File.readlines(file_name).join)
 		out.puts(template % [get_title(outFile), bc.to_html])	
 	}
