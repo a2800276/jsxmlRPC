@@ -10,16 +10,20 @@ distRoot = "jsxmlRPC"
 `rm -rf dist/jsxmlRPC`
 
 File.makedirs("dist/#{distRoot}/src")
+File.makedirs("dist/#{distRoot}/site")
 File.makedirs("dist/#{distRoot}/tests")
 File.makedirs("dist/#{distRoot}/tests/ws")
 File.makedirs("dist/#{distRoot}/tests/data")
 
 # copy src/*js -> dist
 Dir["src/*.js"].each {|fname|
-	File.copy(fname, "dist/#{distRoot}/src", true)
-	
+  File.copy(fname, "dist/#{distRoot}/src", true)
+  
 }
 
+Dir["site/*.markdown"].each {|fname|
+  File.copy(fname, "dist/#{distRoot}/site", true)
+}
 
 Dir["tests/*/*"].each {|fname|
 	File.copy(fname, "dist/#{distRoot}/"+fname, true)
@@ -36,6 +40,7 @@ File.copy("CHANGES", "dist/#{distRoot}", true)
 File.copy("dist/all_scripts.js", "dist/#{distRoot}", true)
 
 ## only gnu tar !
-`tar -czf jsxmlRPC.tgz -C dist/ #{distRoot}`
+timestr = Time.new.strftime "%Y%m%d"
+`tar -czf jsxmlRPC_#{timestr}.tgz -C dist/ #{distRoot}`
 
 

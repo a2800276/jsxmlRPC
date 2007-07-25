@@ -86,6 +86,9 @@ function getStruct (structNode) {
 function getResultFromValueNode (node) {
 	var valueNode = node.firstChild
 	var result
+	while ("#text"==valueNode.nodeName){
+		valueNode = valueNode.nextSibling
+	}
 	switch (valueNode.nodeName) {
 		case "string":
 			result = new String(getTextValueOfChild(valueNode))
@@ -124,6 +127,8 @@ var req
 var xml
 var xmlstring = '<?xml version="1.0"?><methodResponse><params><param><value><struct><member><name>containsArray</name><value><array><data><value><struct><member><name>crap</name><value><string>bullshit</string></value></member></struct></value></data></array></value></member><member><name>str</name><value><string>anothStr</string></value></member></struct></value></param></params></methodResponse>'
 
+var xmlstring2 = '<?xml version="1.0"?><methodResponse><params><param><value> <int>2</int></value></param></params></methodResponse>'
+
 xml_rpc_response_tests = [
 	function () {
 		// initializes
@@ -146,6 +151,14 @@ xml_rpc_response_tests = [
 		var xml=parser.parseFromString(xmlstring,"text/xml");
 		result = rpc.handleAnswer(xml);
 		return (result.containsArray && result.str == "anothStr")
+	},
+
+	function () {
+		var rpc = new XmlRpc();
+		var parser=new DOMParser();
+		var xml=parser.parseFromString(xmlstring2,"text/xml");
+		result = rpc.handleAnswer(xml);
+		return (2 == result)
 	}
 	
 ]
