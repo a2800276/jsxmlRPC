@@ -23,12 +23,8 @@ automatically create the Javascript proxy object for webservices.
 
 -- TODO - these files don't belong to the jsRPC package.
 
-xml.js - todo - utility functions for dumping xml nodes.
 
 html_basics.js - utility functions for creating html dynamically
-
-createObject.js - experimental stuff for dynamically instantiating
-objects.
 
 test_basics.js - utilities for a Javascript test harness.
 
