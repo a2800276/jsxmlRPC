@@ -2,7 +2,7 @@
 
 You have several options for obtaining the _jsxmlRPC_ distribution:
 
-* Download the [tarball][sourceforge] from the Sourceforge download page.
+* Download the [tarball][ghtar] from github
 * Retrieve the [latest][github] from github
 * Retrieve [this][script] file, which contains a single file which you need to
   include in order to use _jsxmlRPC_.
@@ -55,8 +55,8 @@ files are included in the distribution:
 Hugo Buddelmeijer (buddel@astro.rug.nl) for fixes!
 
 [1]: http://www.kuriositaet.de/javascript/test_ng/index.html
-[sourceforge]: http://sourceforge.net/project/showfiles.php?group_id=168212
+[ghtar]: https://github.com/a2800276/jsxmlRPC/blob/master/jsxmlRPC_20120122.tgz?raw=true
 [github]: https://github.com/a2800276/jsxmlRPC
-[script]: all_scripts.js
+[script]: https://raw.github.com/a2800276/jsxmlRPC/master/dist/all_scripts.js 
 
 
