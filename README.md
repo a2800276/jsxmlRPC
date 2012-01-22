@@ -3,7 +3,7 @@
 You have several options for obtaining the _jsxmlRPC_ distribution:
 
 * Download the [tarball][sourceforge] from the Sourceforge download page.
-* Retrieve the [latest][svn] from the Sourceforge Subversion repository.
+* Retrieve the [latest][github] from github
 * Retrieve [this][script] file, which contains a single file which you need to
   include in order to use _jsxmlRPC_.
 
@@ -50,11 +50,13 @@ files are included in the distribution:
   The `prepare.rb` script removes these tests when preparing the
   `all_scripts.js` distribution file.
 
+# Thanks
 
+Hugo Buddelmeijer (buddel@astro.rug.nl) for fixes!
 
 [1]: http://www.kuriositaet.de/javascript/test_ng/index.html
 [sourceforge]: http://sourceforge.net/project/showfiles.php?group_id=168212
-[svn]: http://sourceforge.net/svn/?group_id=168212
+[github]: https://github.com/a2800276/jsxmlRPC
 [script]: all_scripts.js
 
 

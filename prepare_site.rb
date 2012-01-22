@@ -28,7 +28,7 @@ end
 
 
 File.makedirs(output_dir)
-File.copy("README", "site/download.markdown", true)
+File.copy("README.md", "site/download.markdown", true)
 File.copy("dist/all_scripts.js", output_dir)
 
 # retrieve the template file...

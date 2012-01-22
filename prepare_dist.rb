@@ -34,7 +34,7 @@ Dir["tests/*/*"].each {|fname|
 File.copy("prepare.rb", "dist/#{distRoot}", true)
 File.copy("prepare_dist.rb", "dist/#{distRoot}", true)
 File.copy("prepare_tests.rb", "dist/#{distRoot}", true)
-File.copy("README", "dist/#{distRoot}", true)
+File.copy("README.md", "dist/#{distRoot}", true)
 File.copy("CHANGES", "dist/#{distRoot}", true)
 
 File.copy("dist/all_scripts.js", "dist/#{distRoot}", true)
