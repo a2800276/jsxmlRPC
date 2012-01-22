@@ -155,7 +155,8 @@ XmlRpc.getObject = function (url, functionNameArr) {
   functionNameArr = functionNameArr ? functionNameArr : obj.call("system.listMethods")
   for (var i=0; i!= functionNameArr.length; ++i) {
     functionName = functionNameArr[i]
-    addFunction(obj, functionName, functionName.replace(/\./,"_"))
+    // 2012/01/02 HB: Added '/g' to replace multiple .'s with _'s.
+    addFunction(obj, functionName, functionName.replace(/\./g,"_"))
   }
   return obj
 }

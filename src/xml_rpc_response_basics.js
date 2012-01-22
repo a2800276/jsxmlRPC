@@ -85,9 +85,20 @@ function getStruct (structNode) {
 }
 function getResultFromValueNode (node) {
   var valueNode = node.firstChild
+  // 2012/01/03 HB: A <param> is allowed to have no <value>.
+  //   Returning an empty string if this is the case.
+  if (valueNode == null) {
+    return "";
+  }
   var result
   while ("#text"==valueNode.nodeName){
+    // 2012/01/03 HB: A <value> is allowed to have no type and
+    //   defaults to a string.
+    result = valueNode.nodeValue;
     valueNode = valueNode.nextSibling
+    if (valueNode == null) {
+      return result;
+    }
   }
   switch (valueNode.nodeName) {
     case "string":
