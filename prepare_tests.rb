@@ -17,24 +17,24 @@
 # just run this script using ruby. It will generate the `all_tests.js`
 # file in the `tests` directory automatically from all source files in
 # the `src directory.
-	
+  
 
 File.open("tests/all_tests.js", "w") { |output|
-	Dir["src/*.js"].each {|filename|
-		puts filename
-		File.open(filename,"r") { |file|
-			file.each {|line|
-				if line =~ /\/\*TESTS/ 
-					output.print line
-					break
-				end
-			}
-			file.each {|line|
-				output.print line
-			}
+  Dir["src/*.js"].each {|filename|
+    puts filename
+    File.open(filename,"r") { |file|
+      file.each {|line|
+        if line =~ /\/\*TESTS/ 
+          output.print line
+          break
+        end
+      }
+      file.each {|line|
+        output.print line
+      }
 
-		}
-	}
+    }
+  }
 }
 
 # generate the all_scripts.js file

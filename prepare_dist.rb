@@ -26,8 +26,8 @@ Dir["site/*.markdown"].each {|fname|
 }
 
 Dir["tests/*/*"].each {|fname|
-	File.copy(fname, "dist/#{distRoot}/"+fname, true)
-	#puts fname	
+  File.copy(fname, "dist/#{distRoot}/"+fname, true)
+  #puts fname  
 }
 
 

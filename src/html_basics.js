@@ -29,45 +29,45 @@
 
 
 function makeElement (elementName, text) {
-	var node = document.createElement(elementName)
-	if (text)
-		node.appendChild(document.createTextNode(text))
-	return node
+  var node = document.createElement(elementName)
+  if (text)
+    node.appendChild(document.createTextNode(text))
+  return node
 }
 
 function appendAttribute (node, name, value) {
-	var attr = document.createAttribute(name)
-	attr.nodeValue=value
-	node.setAttributeNode(attr)
+  var attr = document.createAttribute(name)
+  attr.nodeValue=value
+  node.setAttributeNode(attr)
 }
 
 function makeLink (url,text, target) {
-	var node = makeElement ("a", text)
-	appendAttribute(node, "href", url)
-	
-	if (target) {
-		appendAttribute(node, "target", target)
-	}
-	return node
+  var node = makeElement ("a", text)
+  appendAttribute(node, "href", url)
+  
+  if (target) {
+    appendAttribute(node, "target", target)
+  }
+  return node
 }
 
 function makeDiv(clas, text){
-	var node = makeElement("div", text)
-	appendAttribute(node, "class", clas)
-	return node	
+  var node = makeElement("div", text)
+  appendAttribute(node, "class", clas)
+  return node  
 }
 
 
 function makeBr () {
-	return document.createElement("br")
+  return document.createElement("br")
 }
 
 function formToObject (form) {
-	var obj = new Object()
-	for (i=0; i!=form.length; ++i) {
-		if (form[i].name && form[i].name!="") {
-			obj[form[i].name] = form[i].value	
-		}
-	}
-	return obj
+  var obj = new Object()
+  for (i=0; i!=form.length; ++i) {
+    if (form[i].name && form[i].name!="") {
+      obj[form[i].name] = form[i].value  
+    }
+  }
+  return obj
 }
